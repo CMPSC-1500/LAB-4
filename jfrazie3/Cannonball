@@ -1,0 +1,36 @@
+//Unfinished
+
+
+import javax.swing.JOptionPane;
+public class cannonBalls {
+
+	public static void main(String[] args) {
+		String input = JOptionPane.showInputDialog("Enter number of rows in pyramid");
+		int rows = Integer.parseInt(input);
+		System.out.println("There are "+ getTotalNumberOfCannonballs(rows) + " cannonballs in the pyramid");
+		
+	}
+	public static int getTotalNumberOfCannonballs(int rows) {
+		int x []= new int[2];
+		int b = rows;
+		if (b==1) {
+			return 1;
+		}
+		else {
+			x[0]= getCannonballsInRow(b);
+			getTotalNumberOfCannonballs(b=b-1);
+			return  getTotalNumberOfCannonballs(b-1);
+		}
+		
+	}
+	public static int getCannonballsInRow(int b) {
+		int c = b;
+		if(c==1) {
+			return 1;
+		}
+		else {
+			return c + getCannonballsInRow(c-1);
+		}
+	}
+
+}
